@@ -1,5 +1,5 @@
 ## Carvana Coding Challeng
-This is my solution to the carvana coding challenge!
+This is my solution to the carvana coding challenge! It efficiently finds the most frequent tri-grams in a document.
 
 ### Requirements
 - `gcc` compiler
@@ -7,27 +7,25 @@ This is my solution to the carvana coding challenge!
 
 ### How to use
 - Clone this repository
-- Enter the 
+- Enter the `trie` folder
 - Compile the trie with `g++ trie.cpp -o trie`
-- Run the trie with `./trie [filename(s) to process (separated by spaces)]`
+- Run the trie with `./trie [filename(s)]`
 
 *The repository contains data in `data/test_small.txt` and `data/test_tiny.txt`*
-
-*Example command: `g++ trie.cpp -o trie; ./trie ../data/test_small.txt ../data/test_small.txt`*
 
 ### How it works
 `naive.ipynb` contains python code on various naive solutions
 
-> It clearly runs inefficiently. They both load the entire file into memory before processing it and create a large hashmap containing every pair of words, making the code both time and space inefficient
+> It clearly runs inefficiently. Every solution loads the entire text file into memory and creates a large hashmap containing every pair of words, meaning the code is time and space inefficient
 
-`trie.cpp` contains C++ code which creates a [trie](https://arxiv.org/pdf/1806.09447.pdf) using the corpus
+`trie.cpp` contains C++ code which creates a [trie](https://arxiv.org/pdf/1806.09447.pdf) to keep track of words
 
-> This tree contains words at each node, making the tree more space efficient. It also scans the corpus at each line only one line of the file has to be loaded into memory at a time.
+> This tree contains words at each node, making the tree more space efficient than a hash map. It also scans the corpus one line at a time to allow for files larger than memory.
 
 ![tree](tree.jpg)
 
 ### What's next
-I spent most of my time on efficiency, rather than meeting extra requirements. I would start by testing my code and building out the `trie.cpp` to have it support other applications than just counting pairs of words.
+I spent most of my time on efficiency, rather than meeting the extra requirements. I would start by testing my code and building out the `trie.cpp` to have it support other applications than just counting pairs of words.
 
 Some test cases I haven't considered:
 - Non-unicode characters
@@ -35,4 +33,4 @@ Some test cases I haven't considered:
 - Handling words with a large number of characters
 - Handling large files with entirely unique characters
 
-Also, I started `trieletters.cpp` as a more efficient implementation of `trie.cpp` which uses individual letters as nodes in the tree rather than entire words. This uses more primitive datatypes and less expensive C objects and would run faster. I ran into road blocks with `segmentation fault` errors, which is why the file is half-way done.
+Also, I started writing `trieletters.cpp` as a more efficient implementation of `trie.cpp` which uses individual letters as nodes in the tree rather than entire words. This uses more primitive datatypes,  less expensive C objects and would run faster. I ran into road blocks with `segmentation fault` errors, which is why this solution is half-way done.
