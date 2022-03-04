@@ -16,10 +16,13 @@ This is my solution to the carvana coding challenge!
 *Example command: `g++ trie.cpp -o trie; ./trie ../data/test_small.txt ../data/test_small.txt`*
 
 ### How it works
-`naive.ipynb` contains python code on various naive solutions 
-    *It clearly runs inefficiently. They both load the entire file into memory before processing it and create a large hashmap containing every pair of words, making the code both time and space inefficient*
+`naive.ipynb` contains python code on various naive solutions
+
+> It clearly runs inefficiently. They both load the entire file into memory before processing it and create a large hashmap containing every pair of words, making the code both time and space inefficient
+
 `trie.cpp` contains C++ code which creates a [trie](https://arxiv.org/pdf/1806.09447.pdf) using the corpus
-    *This tree contains words at each node, making the tree more space efficient. It also scans the corpus at each line only one line of the file has to be loaded into memory at a time.*
+
+> This tree contains words at each node, making the tree more space efficient. It also scans the corpus at each line only one line of the file has to be loaded into memory at a time.
 
 ![tree](tree.jpg)
 
